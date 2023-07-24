@@ -35,7 +35,10 @@ const ShowDetailPage: FC<ShowDetailPageProps> = ({ show, singleShow }) => {
           <div>
             <img
               className="h-72 rounded-t-sm"
-              src={singleShow.image?.medium}
+              src={
+                singleShow.image?.medium ||
+                "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+              }
               alt=""
             />
           </div>
