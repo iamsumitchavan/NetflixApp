@@ -8,7 +8,7 @@ import createSagaMiddleware from "redux-saga";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { QUERY_ACTION } from "../action/Shows";
 import fetchShow from "../Sagas/Show";
-import { takeLatest } from "redux-saga/effects";
+import { debounce } from "redux-saga/effects";
 
 const reducer = combineReducers({
   show: ShowReducer,
@@ -17,7 +17,7 @@ const reducer = combineReducers({
 const sagaMiddleWare = createSagaMiddleware();
 
 function* rootSaga() {
-  yield takeLatest(QUERY_ACTION, fetchShow);
+  yield debounce(200, QUERY_ACTION, fetchShow);
 }
 
 export type State = ReturnType<typeof reducer>;

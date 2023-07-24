@@ -1,4 +1,4 @@
-type item = {
+type show = {
   id: number;
 
   name: string;
@@ -17,4 +17,4 @@ type item = {
   };
   summary?: string;
 };
-export default item;
+export default show;

@@ -12,3 +12,7 @@ export const QuerySelector = createSelector(
   ShowsSelector,
   (showState) => showState.query
 );
+
+export const SingleshowSelector = createSelector(ShowsSelector, (showState) => {
+  return showState.show;
+});

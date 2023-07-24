@@ -13,3 +13,10 @@ export const QueryLoadedAction: ActionCreator<string> = (query: string) => ({
   type: QUERY_ACTION,
   payload: query,
 });
+
+export const SHOWS_DETAILS = "SHOWS DETAILS ACTION";
+
+export const ShowsDetailActionLoaded: ActionCreator<{}> = (show: item) => ({
+  type: SHOWS_DETAILS,
+  payload: show,
+});

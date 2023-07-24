@@ -6,14 +6,9 @@ import { FC } from "react";
 import { QueryLoadedAction } from "../action/Shows";
 import { State } from "../reducers/Store";
 import { QuerySelector, ShowLoadeSelector } from "../selector/Shows";
-import { connect } from "react-redux";
+import { ConnectedProps, connect } from "react-redux";
 
-type ShowCardProps = {
-  ShowsLoaded: (s: item) => void;
-  show: item[];
-  query: string;
-  queryLoaded: (query: string) => void;
-};
+type ShowCardProps = {} & ReduxProps;
 
 const ShowCard: FC<ShowCardProps> = ({ show, query, queryLoaded }) => {
   return (
@@ -38,5 +33,7 @@ const mapDispatchToProps = {
 const mapstateToProps = (state: State) => {
   return { show: ShowLoadeSelector(state), query: QuerySelector(state) };
 };
+const connector = connect(mapstateToProps, mapDispatchToProps);
 
-export default connect(mapstateToProps, mapDispatchToProps)(ShowCard);
+type ReduxProps = ConnectedProps<typeof connector>;
+export default connector(ShowCard);
